@@ -1,8 +1,7 @@
 Metto l'intero changelog qui, per l'icona si imposta da sola e adesso il bot ti chiede di aggiornare se sta un aggiornamento:)
 
                                                                Version 1.0
-
-								    -H
+-H
 
                                                Version 1.1 - Essential and Easter Egg Update
 
