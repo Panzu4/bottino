@@ -1,10 +1,9 @@
 Metto l'intero changelog qui, per l'icona si imposta da sola e adesso il bot ti chiede di aggiornare se sta un aggiornamento:)
 
-                                                               Version 1.0
+	Version 1.0
 -H
 
-                                               Version 1.1 - Essential and Easter Egg Update
-
+	Version 1.1 - Essential and Easter Egg Update
 -Modificati i messaggi per non sembrare ridondanti
 -Se il bot impiega piu di 5 secondi a caricare una canzone mostrerà un nuovo messaggio
 -Il comando !queue adesso mostra posizioni e titoli delle canzoni invece che solo i link
@@ -29,7 +28,7 @@ Tweaks:
 *Known bug: se metti due canzoni contemporaneamente senza che nessuna sta in play, la seconda va nelle backrooms idk
 *Known bug: ogni tanto appare un errore "Already playing audio" ma non fa un cazzo quindi boh
 
-						   Version 1.2 - HEEEEEELP, HELP ME!! Update 
+	Version 1.2 - HEEEEEELP, HELP ME!! Update 
 -Comando help bello 🎉🎊🥳🎁🎈🤠🕺💃
 -Aggiustato il comando !loop
 -Aggiunta grafica e tasti interattivi
@@ -41,12 +40,11 @@ Tweaks:
 *Known bug: se una playlist ha una canzone privata porco dio non carica l'intera playlist COME CAZZO LO FIXO AAAAAAAAA
 *Known bug 2: la barra  non si ferma bene con pause ma mi sono cacato il cazzo lo aggiusto al prossimo update se mi va
 
-
-						 	  Version 1.2.1 - dio porco
+	Version 1.2.1 - dio porco
 -Fixato !skip che skippava sua madre puttana anche
 -Other minor fixes
 
-						 	  Version 1.3 - Hamborger
+	Version 1.3 - Hamborger
 -Comando !voglio aggiunto
 -Comando !jump aggiunto
 -Comando !ping aggiunto
@@ -55,10 +53,7 @@ Tweaks:
 -Bot adesso avvisa solo in caso di latenza alta
 -Aggiustati bug minori di logica
 
-
-
-							  Versione 2.0 - Remaster
-
+	Versione 2.0 - Remaster
 -Rimodernizzato il Bot con modularità cosi mi ricordo dove stanno i comandi
 -Modificata logica di !loop per fare in modo che si resetta ogni volta che si svuota la coda senza bisogno di richiamarlo
 -Comando !voglio scartato, mettetevi i link da soli
