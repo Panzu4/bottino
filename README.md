@@ -1,4 +1,5 @@
 Copyright (c) [2025] [Matera Nunzio]. All Rights Reserved.
+
 Nobody can use this files without my direct permission.
 
 Metto l'intero changelog qui, per l'icona si imposta da sola e adesso il bot ti chiede di aggiornare se sta un aggiornamento:)
