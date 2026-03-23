@@ -1773,9 +1773,6 @@ async def close_bot(ctx):
     await bot.close()
 
 async def main_bot_run():
-    """Funzione principale per eseguire il bot, inclusi i controlli degli aggiornamenti."""
-    should_run = await check_for_updates_and_interact()
-    if should_run:
         try:
             await bot.start(TOKEN)
         except KeyboardInterrupt:
@@ -1784,9 +1781,6 @@ async def main_bot_run():
             await bot.close()
             if hasattr(bot, 'executor'): 
                 bot.executor.shutdown()
-    else:
-        print("Avvio del bot annullato dall'utente per aggiornamento.")
-        sys.exit(0)
 
 if __name__ == "__main__":
     try:
