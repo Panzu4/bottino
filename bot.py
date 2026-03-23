@@ -17,19 +17,12 @@ from packaging.version import parse as parse_version
 
 # CONFIGURATION
 def load_token():
-    if os.path.exists('token.txt'):
-        with open('token.txt', 'r') as f:
-            return f.read().strip()
-    else:
-        # Se il file non esiste, lo crea vuoto per l'utente
-        with open('token.txt', 'w') as f:
-            f.write("INCOLLA_QUI_IL_TUO_TOKEN")
-        print("File 'token.txt' creato. Incolla il tuo token e riavvia.")
-        return None
+    with open('token.txt', 'r') as f:
+        return f.read().strip()
 
 TOKEN = load_token()
 COMMAND_PREFIX = '!'
-BOT_VERSION = "2.1.5"
+BOT_VERSION = "3.0"
 LATEST_VERSION_URL = "https://gist.githubusercontent.com/Panzu4/d75cdbf636177b8b5000fb14d65e1bab/raw"
 RELEASE_URL = "https://github.com/Panzu4/bottino/releases"
 STATE_FILE = 'bot_state.json'
