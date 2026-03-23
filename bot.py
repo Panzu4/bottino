@@ -1,4 +1,3 @@
-# LIBRERIE python.exe -m pip install --upgrade per aggiornamenti
 import asyncio
 import datetime
 import json
