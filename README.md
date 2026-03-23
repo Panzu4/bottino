@@ -4,3 +4,4 @@ Nobody can use this files without my direct permission.
 
 - Version 3.0: automation
 Adesso il bot è capace di aggiornare le librerie autonomamente e anche se stesso yippee
+Per il token vedere su discord cosi
