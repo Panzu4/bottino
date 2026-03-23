@@ -110,7 +110,7 @@ class HelpMenu(View):
             embed.add_field(name="!🥚", value="E G G", inline=False)
             embed.set_footer(text=f"Pagina {self.current_page}/3")
         elif self.current_page == 3:
-            embed = Embed(title=f"Versione: {BOT_VERSION}", (color=0xFF00FF)
+            embed = Embed(title=f"Versione: {BOT_VERSION}", color=0xFF00FF)
             embed.set_footer(text=f"Pagina {self.current_page}/3")
             embed.set_image(url="https://media.tenor.com/y3fmODUSLpIAAAAm/tenna-deltarune-chapter-3.webp")
         return embed
