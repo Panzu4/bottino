@@ -22,7 +22,7 @@ def load_token():
 
 TOKEN = load_token()
 COMMAND_PREFIX = '!'
-BOT_VERSION = "3.0"
+BOT_VERSION = "3.1"
 LATEST_VERSION_URL = "https://gist.githubusercontent.com/Panzu4/d75cdbf636177b8b5000fb14d65e1bab/raw"
 RELEASE_URL = "https://github.com/Panzu4/bottino/releases"
 STATE_FILE = 'bot_state.json'
