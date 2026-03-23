@@ -23,8 +23,6 @@ def load_token():
 TOKEN = load_token()
 COMMAND_PREFIX = '!'
 BOT_VERSION = "3.0"
-LATEST_VERSION_URL = "https://gist.githubusercontent.com/Panzu4/d75cdbf636177b8b5000fb14d65e1bab/raw"
-RELEASE_URL = "https://github.com/Panzu4/bottino/releases"
 STATE_FILE = 'bot_state.json'
 
 # YTDL AND FFMPEG SETTINGS
@@ -112,7 +110,7 @@ class HelpMenu(View):
             embed.add_field(name="!🥚", value="E G G", inline=False)
             embed.set_footer(text=f"Pagina {self.current_page}/3")
         elif self.current_page == 3:
-            embed = Embed(title="Versione 2.1.4", color=0xFF00FF)
+            embed = Embed(title=f"Versione: {BOT_VERSION}" [, color=0xFF00FF)
             embed.set_footer(text=f"Pagina {self.current_page}/3")
             embed.set_image(url="https://media.tenor.com/y3fmODUSLpIAAAAm/tenna-deltarune-chapter-3.webp")
         return embed
@@ -1762,51 +1760,6 @@ async def check_connection_quality(bot_instance):
         if latency > 0.2:
             print(f"⚠️ AVVISO: Latenza alta - {latency * 1000:.2f} ms")
         await asyncio.sleep(30)
-
-async def check_for_updates_and_interact():
-    print("\nVerifica aggiornamenti in corso...")
-    try:
-        async with aiohttp.ClientSession() as session:
-            async with session.get(LATEST_VERSION_URL) as response:
-                if response.status == 200:
-                    latest_version_str = (await response.text()).strip()
-
-                    current_version = parse_version(BOT_VERSION)
-                    latest_version = parse_version(latest_version_str)
-
-                    if current_version < latest_version:
-                        print(f"\n==============================================")
-                        print(f"  ATTENZIONE: È disponibile una nuova versione!")
-                        print(f"  Versione corrente: {BOT_VERSION}")
-                        print(f"  Ultima versione:   {latest_version_str}")
-                        print(f"==============================================\n")
-
-                        while True:
-                            choice = input("Vuoi aggiornare il bot? (S/N): ").strip().lower()
-                            if choice == 's':
-                                print(f"\n==============================================")
-                                print(f"  Apertura del link di aggiornamento nel browser:")
-                                print(f"  {RELEASE_URL}")
-                                print(f"==============================================\n")
-                                webbrowser.open_new_tab(RELEASE_URL)
-                                print("Chiusura del bot. Riavvia con la nuova versione dopo il download.")
-                                return False
-                            elif choice == 'n':
-                                print("Continuo con la versione attuale. Potresti perdere nuove funzionalità o correzioni di bug.")
-                                return True
-                            else:
-                                print("Scelta non valida. Per favor, digita 'S' per Sì o 'N' per No.")
-                    else:
-                        print("Il bot è già aggiornato all'ultima versione.")
-                        return True
-                else:
-                    print(f"Errore durante la verifica degli aggiornamenti (HTTP Status: {response.status}). Impossibile verificare la versione remota.")
-                    print("Il bot continuerà l'avvio. Controlla la tua connessione o l'URL di rilascio.")
-                    return True
-    except Exception as e:
-        print(f"Impossibile verificare gli aggiornamenti: {e}. Il bot continuerà l'avvio.")
-        print("Controlla la tua connessione internet o l'URL del repository.")
-        return True
 
 @bot.command(name='restart')
 async def restart_bot(ctx):
