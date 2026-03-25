@@ -48,7 +48,6 @@ ytdl = youtube_dl.YoutubeDL(ytdl_format_options)
 
 # UTILITY CLASSES
 class YTDLSource(discord.PCMVolumeTransformer):
-    """Rappresenta una sorgente audio riproducibile da YouTube."""
     def __init__(self, source, *, data, volume=0.5):
         super().__init__(source, volume)
         self.data = data
@@ -208,7 +207,6 @@ class PlaybackControls(View):
         await interaction.response.send_message("H 👍", ephemeral=False)
 
 class QueueView(View):
-    """View per la paginazione della coda musicale."""
     def __init__(self, bot_queues, guild_id, total_pages, initial_page=1, songs_per_page=15):
         super().__init__(timeout=180)
         self.bot_queues = bot_queues
@@ -218,12 +216,10 @@ class QueueView(View):
         self.songs_per_page = songs_per_page
 
     async def update_embed(self, interaction: discord.Interaction):
-        """Aggiorna l'embed del messaggio con la pagina corrente della coda."""
         embed = self.get_embed()
         await interaction.response.edit_message(embed=embed, view=self)
 
     def get_embed(self):
-        """Genera l'embed per la pagina corrente della coda."""
         queue = self.bot_queues.get(self.guild_id, [])
         if not queue:
             return Embed(title="Coda di Riproduzione", description="La coda è vuota.", color=0xFF00FF)
@@ -243,21 +239,16 @@ class QueueView(View):
 
     @discord.ui.button(label="⬅️", style=discord.ButtonStyle.primary, custom_id="prev_queue_page")
     async def previous_page(self, interaction: discord.Interaction, button: Button):
-        """Passa alla pagina precedente della coda."""
         self.current_page = (self.current_page - 2 + self.total_pages) % self.total_pages + 1
         await self.update_embed(interaction)
 
     @discord.ui.button(label="➡️", style=discord.ButtonStyle.primary, custom_id="next_queue_page")
     async def next_page(self, interaction: discord.Interaction, button: Button):
-        """Passa alla pagina successiva della coda."""
         self.current_page = self.current_page % self.total_pages + 1
         await self.update_embed(interaction)
 
 # PROGRESS BAR
 async def update_progress_bar(ctx, progress_message, total_duration, controls):
-    """Aggiorna la barra di avanzamento della riproduzione in un messaggio."""
-    # Rimuovi la riga: start_playback_time = datetime.datetime.now() - datetime.timedelta(seconds=controls.elapsed_time)
-
     while ctx.voice_client and (ctx.voice_client.is_playing() or controls.paused):
         if controls.paused:
             current_elapsed = controls.elapsed_time # Usa il tempo trascorso salvato al momento della pausa
@@ -285,7 +276,6 @@ async def update_progress_bar(ctx, progress_message, total_duration, controls):
 # CLASSES DI FUNZIONE
 
 class Events(commands.Cog):
-    """Gestisce gli eventi del bot come gli aggiornamenti dello stato vocale e i comandi generali."""
     def __init__(self, bot):
         self.bot = bot
 
@@ -313,7 +303,6 @@ class Music(commands.Cog):
         self.paused_state = {}
 
     async def play_next(self, ctx):
-        """Riproduce la prossima canzone nella coda."""
         guild_id = ctx.guild.id
 
         if guild_id in self.bot.looping and self.bot.looping[guild_id] and self.bot.queues[guild_id]:
@@ -362,7 +351,6 @@ class Music(commands.Cog):
             await update_progress_bar(ctx, progress_message, total_duration, controls)
 
     async def _after_playing_task(self, ctx):
-        """Internal task to be called after a song finishes or is stopped."""
         await asyncio.sleep(0.1)
         await self.play_next(ctx)
 
@@ -1705,7 +1693,6 @@ async def save_state():
     print("Stato del bot salvato.")
 
 async def load_state():
-    """Carica lo stato del bot da un file all'avvio."""
     if os.path.exists(STATE_FILE):
         with open(STATE_FILE, 'r') as f:
             state = json.load(f)
