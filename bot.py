@@ -3,8 +3,6 @@ import datetime
 import json
 import os
 import random
-import sys
-import webbrowser
 import concurrent.futures
 import aiohttp
 import discord
@@ -12,7 +10,6 @@ from discord.ext import commands
 from discord.ui import View, Button
 from discord import Embed
 import yt_dlp as youtube_dl
-from packaging.version import parse as parse_version
 
 # CONFIGURATION
 def load_token():
